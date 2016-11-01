@@ -7,6 +7,7 @@ LABEL Verdor="Ghostcloud" \
       Verson="1.0.0" \
       Date="1/11/2016"
 
+RUN echo "http://mirrors.ustc.edu.cn/alpine/latest-stable/main/" > /etc/apk/repositories
 RUN apk add --update mysql mysql-client && rm -f /var/cache/apk/*
 
 COPY entrypoint.sh /entrypoint.sh
