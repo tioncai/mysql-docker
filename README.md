@@ -3,11 +3,11 @@ a docker image base on alpine with mysql
 
 build image
 ```
-docker build -t alpine/mysql .
-docker run -it --rm -v $(pwd):/app -p 3306:3306 alpine/mysql
+docker build -t mysql:alpine .
+docker run -it --rm -v $(pwd):/var/lib/mysql -p 3306:3306 mysql:alpine
 ```
 Usage
 ```
-docker run -it --name mysql -p 3306:3306 -v $(pwd):/app -e MYSQL_DATABASE=admin -e MYSQL_USER=web -e MYSQL_PASSWORD=password -e MYSQL_ROOT_PASSWORD=root_passwd alpine/mysql
+docker run -it --name mysql -p 3306:3306 -v $(pwd):/var/lib/mysql -e MYSQL_ROOT_PASSWORD=ghostcloud mysql:alpine
 ```
-It will create a new db, and set mysql root password(default is root_passwd)
+It will create a new db, and set mysql root password(default is ghostcloud)
